@@ -1,4 +1,4 @@
-module main
+module github.com/remr2005/Secod_project/main
 
 go 1.21.1
 
