@@ -1,4 +1,4 @@
-package main
+package github.com/remr2005/Secod_project/main
 
 type person struct {
 	id    string
