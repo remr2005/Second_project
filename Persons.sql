@@ -1,0 +1,17 @@
+
+USE Persons_2;
+ 
+CREATE TABLE Persons_table
+(
+    ID VARCHAR(20),
+    NAMEP VARCHAR(20),
+    MONEY INT
+);
+
+CREATE TABLE Products_table
+(
+    ID VARCHAR(20),
+    NAMEP VARCHAR(20),
+    DESCRIPTIONP VARCHAR(500),
+    COST INT
+);
