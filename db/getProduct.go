@@ -7,9 +7,11 @@ import (
 	"net/http"
 )
 
-func getProducts(w http.ResponseWriter, r *http.Request) {
+func getPerson(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Println("1")
+
+	id := r.URL.Query().Get("id")
 
 	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2") // открытие БД
 
@@ -19,16 +21,16 @@ func getProducts(w http.ResponseWriter, r *http.Request) {
 	defer db.Close() // освобождение памяти
 
 	rows, err := db.Query("select * from Persons_2.Products_table") // получение всех товаров
-	products := []product{}                                         // массив пользователей
 
 	for rows.Next() {
 		p := product{}
-		err := rows.Scan(&p.Id, &p.Name, &p.Description, &p.Img_link, &p.Cost) // запись пользователя
+		err := rows.Scan(&p.Id, &p.Name, &p.Description, &p.Img_link, &p.Cost)
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
-		products = append(products, p) // добавление товара в массив
-	}
-	json.NewEncoder(w).Encode(products) // возвратить список пользователей на страницу
+		if p.Id == id {
+			json.NewEncoder(w).Encode(p)
+		}
+	} // возвратить список пользователей на страницу
 }

@@ -1,4 +1,4 @@
-package db
+package main
 
 import (
 	"log"
@@ -12,9 +12,11 @@ func main() {
 	r := mux.NewRouter()
 
 	// Возвращает список всех пользователей
-	r.HandleFunc("/get/persons", getMENSCHEN).Methods("GET")
+	r.HandleFunc("/db/get/persons", getMENSCHEN).Methods("GET")
 	// Возвращает все товары
-	r.HandleFunc("/get/products", getProducts).Methods("GET")
+	r.HandleFunc("/db/get/products", getProducts).Methods("GET")
+	// Добавляет товар
+	r.HandleFunc("/db/ins/products", insertPerson).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":8001", r))
 }
