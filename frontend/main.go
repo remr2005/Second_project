@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gorilla/mux"
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 )
@@ -9,7 +9,7 @@ import (
 func main() {
 	r := mux.NewRouter()
 
-	// Возвращает список всех пользователей
+	// Страница продуктов 
 	r.HandleFunc("/ProductStore", mainProducts).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":8000", r))

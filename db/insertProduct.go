@@ -2,14 +2,16 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 )
 
+// must test
 func insertPerson(w http.ResponseWriter, r *http.Request) {
 
-	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2")
+	db, err := sql.Open("mysql", "root:password@/Persons_2")
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	defer db.Close()
 
@@ -23,6 +25,9 @@ func insertPerson(w http.ResponseWriter, r *http.Request) {
 	_, err = db.Exec("INSERT INTO Persons_2.Products_table (ID, NAMEP, DESCRIPTIONP, IMG_LINK, COST) VALUES (?, ?, ?, ?, ?)",
 		id, name, description, link, cost)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		fmt.Fprint(w, `0`)
+		return
 	}
+	fmt.Fprint(w, `1`)
 }

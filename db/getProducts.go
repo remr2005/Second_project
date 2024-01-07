@@ -7,14 +7,15 @@ import (
 	"net/http"
 )
 
+// без теста
 func getProducts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Println("1")
 
-	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2") // открытие БД
+	db, err := sql.Open("mysql", "root:password@/Persons_2") // открытие БД
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 	defer db.Close() // освобождение памяти
 
