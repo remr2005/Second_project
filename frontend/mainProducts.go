@@ -29,7 +29,7 @@ func mainProducts(w http.ResponseWriter, r *http.Request) {
 	<html lang="ru">
 	<head>
 		<meta charset="UTF-8">
-		<title>Shop</title>
+		<title>ArianShop</title>
 	</head>
 	<body>
 		<style>html{
@@ -104,24 +104,33 @@ func mainProducts(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < len(products); i++ {
 		if i%3 == 0 {
 			fmt.Fprint(w, `<form class="line1" target="_blank">`)
-			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;" formaction="">`)
+			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;">`)
+			fmt.Fprint(w, `<a href="`)
+			fmt.Fprint(w, "/ProductStore/product?id="+products[i].Id)
+			fmt.Fprint(w, `">`)
 			fmt.Fprint(w, products[i].Name)
 			fmt.Fprint(w, `<p><img src="`)
 			fmt.Fprint(w, products[i].Img_link)
-			fmt.Fprint(w, `"></p></button>`)
+			fmt.Fprint(w, `"></p></a></button>`)
 		} else if i%3 == 2 {
-			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;" formaction="">`)
+			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;">`)
+			fmt.Fprint(w, `<a href="`)
+			fmt.Fprint(w, "/ProductStore/product?id="+products[i].Id)
+			fmt.Fprint(w, `">`)
 			fmt.Fprint(w, products[i].Name)
 			fmt.Fprint(w, `<p><img src="`)
 			fmt.Fprint(w, products[i].Img_link)
-			fmt.Fprint(w, `"></p></button>`)
+			fmt.Fprint(w, `"></p></a></button>`)
 			fmt.Fprint(w, `</form>`)
 		} else {
-			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;" formaction="">`)
+			fmt.Fprint(w, `<button class="cpu" style="margin-right: 17%;">`)
+			fmt.Fprint(w, `<a href="`)
+			fmt.Fprint(w, "/ProductStore/product?id="+products[i].Id)
+			fmt.Fprint(w, `">`)
 			fmt.Fprint(w, products[i].Name)
 			fmt.Fprint(w, `<p><img src="`)
 			fmt.Fprint(w, products[i].Img_link)
-			fmt.Fprint(w, `"></p></button>`)
+			fmt.Fprint(w, `"></p></a></button>`)
 		}
 	}
 	if len(products)%3 != 0 {

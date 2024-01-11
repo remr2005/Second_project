@@ -9,7 +9,7 @@ import (
 // must test
 func insertPerson(w http.ResponseWriter, r *http.Request) {
 
-	db, err := sql.Open("mysql", "root:password@/Persons_2")
+	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2")
 	if err != nil {
 		fmt.Println(err)
 	}

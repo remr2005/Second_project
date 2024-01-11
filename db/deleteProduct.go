@@ -12,7 +12,7 @@ func deleteProduct(w http.ResponseWriter, r *http.Request) {
 	git_id := r.URL.Query().Get("ID")
 
 	// Открытие БД
-	db, err := sql.Open("mysql", "root:password@/Persons_2")
+	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2")
 	if err != nil {
 		fmt.Println(err)
 	}

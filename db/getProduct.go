@@ -14,7 +14,7 @@ func getProduct(w http.ResponseWriter, r *http.Request) {
 
 	id := r.URL.Query().Get("id")
 
-	db, err := sql.Open("mysql", "root:password@/Persons_2") // открытие БД
+	db, err := sql.Open("mysql", "root:godzila2005;@/Persons_2") // открытие БД
 
 	if err != nil {
 		fmt.Println(err)

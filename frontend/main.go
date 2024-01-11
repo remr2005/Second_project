@@ -11,6 +11,6 @@ func main() {
 
 	// Страница продуктов 
 	r.HandleFunc("/ProductStore", mainProducts).Methods("GET")
-
+	r.HandleFunc("/ProductStore/product", Product).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", r))
 }

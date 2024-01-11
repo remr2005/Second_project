@@ -1,0 +1,36 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(128, 112, 178, 0.608);
+}
+
+img{
+    width: 10%
+}
+.wrapper_header{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    border-radius: 10px;
+    font-size: 2vw;
+    width: 20%;
+    box-shadow: 0px 0px 10px azure;
+}
+.photo{
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+.info{
+    font-size: 1.3vw;
+    position: absolute;
+    left: 10%;
+    top: 55%;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgb(187, 91, 169);
+    background-color: rgba(161, 137, 223, 0.681);
+}
+
